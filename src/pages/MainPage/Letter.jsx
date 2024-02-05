@@ -7,8 +7,7 @@ const CustomColumn = styled.div`
 `;
 
 const Letter = styled.div`
-    width: ${props => props.width || '90%'};
-    min-width: 900px;
+    width: ${props => props.width || '70%'};
     height: ${props => props.height || '80vh'};
     background-color: #A3CCAC;
     border: none;
@@ -39,7 +38,7 @@ export default function Component() {
 
     return (
         <Letter>
-            <CustomColumn height='500px'>
+            <CustomColumn>
                 <p>여기는 1번 페이지</p>
                 <p>안녕</p>
                 <p>안녕</p>

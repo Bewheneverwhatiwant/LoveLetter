@@ -23,20 +23,19 @@ const PageContainer = styled(ContainerCenter)`
 `
 
 const Next = styled.button`
-width: 200px;
-height: 50px;
+width: 100px;
+height: 5vh;
 border: none;
 background-color: #5EB371;
 border-radius: 20px;
 color: white;
 font-family: 'RIDIBatang';
-font-size: 20px;
+font-size: 10px;
 
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-gap: 15px;
 `;
 
 export default function Component() {
@@ -46,18 +45,22 @@ export default function Component() {
                 <Letter />
                 <CustomRow>
                     <Next>
-                        <CustomRow>
+                        <CustomRow gap='5px'>
                             <CustomCenter>
-                                <IoMdArrowBack size='20px' color='white' />
+                                <IoMdArrowBack size='10px' color='white' />
                             </CustomCenter>
-                            이전 장으로
+                            <CustomCenter>
+                                이전 장으로
+                            </CustomCenter>
                         </CustomRow>
                     </Next>
                     <Next>
-                        <CustomRow>
-                            다음 장으로
+                        <CustomRow gap='5px'>
                             <CustomCenter>
-                                <IoMdArrowForward size='20px' color='white' />
+                                다음 장으로
+                            </CustomCenter>
+                            <CustomCenter>
+                                <IoMdArrowForward size='10px' color='white' />
                             </CustomCenter>
                         </CustomRow>
                     </Next>

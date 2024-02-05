@@ -24,20 +24,19 @@ const PageContainer = styled(ContainerCenter)`
 `
 
 const Next = styled.button`
-width: 200px;
-height: 80px;
+width: 20%;
+height: 5vh;
 border: none;
 background-color: #5EB371;
-border-radius: 20px;
+border-radius: 10px;
 color: white;
 font-family: 'RIDIBatang';
-font-size: 20px;
+font-size: 10px;
 
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-gap: 15px;
 
   position: absolute;
   top: 50%;
@@ -84,6 +83,28 @@ const ModalContent = styled.div`
   align-items: center;
 `;
 
+const LockModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  
+  background-color: white;
+  border-radius: 20px;
+
+  color: black;
+  font-family: 'RIDIBatang';
+  font-size: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+`;
+
 export default function Component() {
 
   const navigate = useNavigate();
@@ -99,12 +120,12 @@ export default function Component() {
   return (
     <ContainerCenter>
       <PageContainer>
-        <StyledImg src={'icon_letter_close.png'} width='70%' height='50vh' />
+        <StyledImg src={'icon_letter_close.png'} width='80%' height='40vh' />
         <Next onClick={handleClick}>스티커 뜯기</Next>
         {showModal && (
           <Modal>
             <ModalContent>
-              <StyledImg src={'icon_letter_open.png'} />
+              <StyledImg src={'icon_letter_open.png'} width='70%' height='40vh' />
             </ModalContent>
           </Modal>
         )}
