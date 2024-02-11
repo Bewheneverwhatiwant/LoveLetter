@@ -8,7 +8,7 @@ const CustomColumn = styled.div`
 
 const Letter = styled.div`
     width: ${props => props.width || '70%'};
-    height: ${props => props.height || '80vh'};
+    height: ${props => props.height || '70vh'};
     background-color: #A3CCAC;
     border: none;
     border-radius: 10px;
@@ -34,22 +34,25 @@ const Letter = styled.div`
     }
 `;
 
+const To = styled.h1`
+font-size:20px;
+font-family: 'RIDIBatang';
+color: white;
+`;
+
+const Text = styled.a`
+font-size:13px;
+font-family: 'RIDIBatang';
+color: white;
+line-height: 16px; 
+`;
+
 export default function Component() {
 
     return (
         <Letter>
             <CustomColumn>
-                <p>여기는 1번 페이지</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
-                <p>안녕</p>
+                <To>페이지3</To>
             </CustomColumn>
         </Letter>
     )
