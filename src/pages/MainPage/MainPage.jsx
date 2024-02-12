@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import StyledImg from '../../Components/Container/StyledImg';
 import { keyframes } from 'styled-components';
+import ChocoBox from './ChocoBox';
 
 const ContainerCenter = styled.div`
   display: flex;
@@ -22,6 +23,13 @@ const PageContainer = styled(ContainerCenter)`
 
     position: relative;
 `
+
+const ChocoBoxContainer = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+`;
 
 const Next = styled.button`
 width: 20%;
@@ -270,8 +278,6 @@ export default function Component() {
           <Next onClick={() => setShowLockModal(true)}>스티커 뜯기</Next>
         )}
 
-        <ChocoButton onClick={Choco}>발렌타인</ChocoButton>
-
         {showModal && (
           <Modal>
             <ModalContent>
@@ -298,6 +304,9 @@ export default function Component() {
           </Modal>
         )}
       </PageContainer>
+      <ChocoBoxContainer>
+        <ChocoBox />
+      </ChocoBoxContainer>
     </ContainerCenter>
   );
 };
