@@ -67,6 +67,22 @@ justify-content: center;
   z-index: 1;
 `;
 
+const ChocoButton = styled.button`
+width: 20%;
+height: 5vh;
+border: none;
+background-color: brown;
+border-radius: 10px;
+color: white;
+font-family: 'RIDIBatang';
+font-size: 10px;
+
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+`;
+
 const Submit = styled.button`
 width: 20%;
 height: 5vh;
@@ -240,6 +256,10 @@ export default function Component() {
     }, 3000);
   };
 
+  const Choco = () => {
+    navigate('/chocopage');
+  }
+
   return (
     <ContainerCenter>
       <PageContainer>
@@ -249,6 +269,9 @@ export default function Component() {
         ) : (
           <Next onClick={() => setShowLockModal(true)}>스티커 뜯기</Next>
         )}
+
+        <ChocoButton onClick={Choco}>발렌타인</ChocoButton>
+
         {showModal && (
           <Modal>
             <ModalContent>
