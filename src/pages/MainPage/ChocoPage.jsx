@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import CustomRow from '../../Components/Container/CustomRow';
 import CustomColumn from '../../Components/Container/CustomColumn';
+import CustomCenter from '../../Components/Container/CustomCenter';
+import StyledImg from '../../Components/Container/StyledImg';
 
 const ContainerCenter = styled.div`
   display: flex;
@@ -9,7 +11,6 @@ const ContainerCenter = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  height: 100vh;
 `
 
 const PageContainer = styled(ContainerCenter)`
@@ -17,7 +18,7 @@ const PageContainer = styled(ContainerCenter)`
     flex-direction: column;
     justify-content: center;
     margin: 30px;
-    gap: 30px;
+    gap: 10px;
 
     position: relative;
 `
@@ -82,22 +83,76 @@ line-height: 20px;
 text-align: center;
 `;
 
+const WarningText = styled.div`
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: red;
+  font-size:10px;
+font-family: 'RIDIBatang';
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  ${(props) =>
+        props.show &&
+        css`
+      opacity: 1;
+    `}
+`;
+
+const moveUpDown = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+`;
+
+const Teddy = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: ${moveUpDown} 1s ease-in-out infinite;
+`;
+
 export default function Component() {
     const [flipped, setFlipped] = useState([false, false, false, false]);
+    const [showWarning, setShowWarning] = useState([false, false, false, false]);
 
     const texts = ['너무 사랑해💕✿ܓ', '정말 좋아해💛🎕', '매일 고마워💓ᰔ', '가장 소중해°ε♡з°💚'];
 
     const handleFlip = (index) => {
         setFlipped(flipped.map((flip, i) => (i === index ? !flip : flip)));
+
+        // "충치조심!" 텍스트 표시
+        const newShowWarning = [...showWarning];
+        newShowWarning[index] = true;
+        setShowWarning(newShowWarning);
+
+        setTimeout(() => {
+            const newShowWarning = [...showWarning];
+            newShowWarning[index] = false;
+            setShowWarning(newShowWarning);
+        }, 1500);
     };
 
     return (
         <ContainerCenter>
             <PageContainer>
-                <Text>나영이가 준비한 발렌타인데이 선물이<br />도착했어요!</Text>
+                <Teddy>
+                    <StyledImg src={'teddybear.png'} width='60px' height='60px' />
+                </Teddy>
+                <StyledImg src={'valentine.png'} width='100px' height='100px' />
+                <Text>나영이가 준비한 발렌타인데이 선물이<br />도착했어요!★彡<br />
+                    하나씩 까먹어볼까요?🧡</Text>
                 <ChocoContainer>
                     {[1, 2, 3, 4].map((num, index) => (
                         <CardContainer key={index}>
+                            <WarningText show={showWarning[index]}>충치조심!</WarningText>
                             <CardImage
                                 src={`Choco${num}.png`}
                                 alt={`Choco${num}`}
