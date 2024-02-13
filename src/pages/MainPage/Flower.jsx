@@ -23,41 +23,83 @@ const PageContainer = styled(ContainerCenter)`
     position: relative;
 `
 
-// 꽃 애니메이션
 const tiltAnimation = keyframes`
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(10deg); }
-  100% { transform: rotate(-10deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 `;
 
-// 꿀벌 애니메이션
+const StyledImg1 = styled.img`
+    width: ${props => props.width || 'auto'};
+    height: ${props => props.height || 'auto'};
+    animation: ${tiltAnimation} 2s infinite; // 2초 동안 무한 반복
+`;
+
 const moveAnimation = keyframes`
-  0% { transform: translateX(0px); }
-  50% { transform: translateX(20px); }
-  100% { transform: translateX(-20px); }
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
 `;
 
-// 애니메이션을 적용할 이미지에 대한 스타일 컴포넌트
-const AnimatedImg = styled.img`
-  width: ${props => props.width || 'auto'};
-  height: ${props => props.height || 'auto'};
-  animation: ${props => props.animation}; // css 헬퍼 함수를 사용하지 않는 경우
-  cursor: pointer;
+const StyledImg2 = styled.img`
+    width: ${props => props.width || 'auto'};
+    height: ${props => props.height || 'auto'};
+    animation: ${moveAnimation} 2s infinite; // 2초 동안 무한 반복
 `;
 
-// 꽃에 적용될 애니메이션
-const flowerAnimation = css`
-  ${tiltAnimation} 1s infinite;
-`;
+const StyledImg3 = styled.img`
+    width: ${props => props.width || 'auto'};
+    height: ${props => props.height || 'auto'};
 
-// 꿀벌에 적용될 애니메이션
-const beeAnimation = css`
-  ${moveAnimation} 1s infinite;
 `;
 
 const Text = styled.div`
-  color: black;
-  font-size: 14px;
+  color: brown;
+  font-size: 10px;
+font-family: 'RIDIBatang';
+text-align: left;
+`;
+
+const StyledImg_Text = styled.img`
+    width: ${props => props.width || 'auto'};
+    height: ${props => props.height || 'auto'};
+    position: relative;
+    z-index: 1;
+`;
+
+const LastLetter = styled.a`
+    color: black;
+    font-size: 16px;
+    font-family: 'RIDIBatang';
+    text-align: left;
+    line-height: 20px;
+    position: absolute;
+    z-index: 2;
+   top: 40%;
+   left: 10%;
+`;
+
+const OverlayContainer = styled.div`
+display: flex;
+flex-direction: column;
+    position: relative; //여기 컨테이너 내의 절대 위치 요소들이 기준이 됨
+    width: 100%;
+    height: 40vh;
 `;
 
 export default function Component() {
@@ -76,12 +118,19 @@ export default function Component() {
     return (
         <ContainerCenter>
             <PageContainer>
-                {showChat && <StyledImg src={'chat.png'} width='100%' height='40vh' />}
+                {showChat &&
+                    <OverlayContainer>
+                        <StyledImg_Text src={'chat.png'} width='100%' height='40vh' />
+                        <LastLetter>300일동안 나와 함께해줘서<br />너무 고마워 오빠( ˘ ³˘(◡‿◡˶)<br />
+                            내가 많이 사랑해( . ̫ .)💗</LastLetter>
+                    </OverlayContainer>
+                }
                 {showBee && <Text>앗! 꿀벌이 나타났어요! 꿀벌을 잡아볼까요?</Text>}
                 {showBee && (
-                    <AnimatedImg src={'Bee.png'} width='20%' height='10vh' animation={beeAnimation} onClick={handleBeeClick} />
+                    <StyledImg2 src={'Bee.png'} width='20%' height='10vh' onClick={handleBeeClick} />
                 )}
-                <AnimatedImg src={'flower2.png'} width='80%' height='30vh' animation={flowerAnimation} onClick={handleFlowerClick} />
+                <Text>꽃다발을 잡아볼까요?</Text>
+                <StyledImg1 src={'flower2.png'} width='80%' height='30vh' onClick={handleFlowerClick} />
             </PageContainer>
         </ContainerCenter>
     );
