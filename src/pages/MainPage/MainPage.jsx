@@ -7,6 +7,7 @@ import Flower from './Flower';
 import CustomRow from '../../Components/Container/CustomRow';
 import CustomCenter from '../../Components/Container/CustomCenter';
 import StyledImg from '../../Components/Container/StyledImg';
+import Footer from '../../Components/Footer/Footer';
 
 const ContainerCenter = styled.div`
   display: flex;
@@ -271,70 +272,73 @@ export default function Component() {
   }
 
   return (
-    <ContainerCenter>
-      <PageContainer>
-        <Title>
-          <CustomRow>
-            <StyledImg src={'present.png'} width='100px' height='100px' />
-            <CustomCenter>
-              <Title>
-                300일과 발렌타인데이를 맞아,<br />나영이가 수혁이에게<br />특별한 선물을 준비했어요 !
-              </Title>
-            </CustomCenter>
-          </CustomRow>
-        </Title>
-      </PageContainer>
-      <PageContainer>
-        <CustomLeft>
-          <Title>1. 편지</Title>
-        </CustomLeft>
-        <StyledImg src={'icon_letter_close.png'} width='80%' height='40vh' />
-        {isNext ? (
-          <Next2 onClick={() => handleClick()}>스티커 뜯기</Next2>
-        ) : (
-          <Next onClick={() => setShowLockModal(true)}>스티커 뜯기</Next>
-        )}
+    <>
+      <ContainerCenter>
+        <PageContainer>
+          <Title>
+            <CustomRow>
+              <StyledImg src={'present.png'} width='100px' height='100px' />
+              <CustomCenter>
+                <Title>
+                  300일과 발렌타인데이를 맞아,<br />나영이가 수혁이에게<br />특별한 선물을 준비했어요 !
+                </Title>
+              </CustomCenter>
+            </CustomRow>
+          </Title>
+        </PageContainer>
+        <PageContainer>
+          <CustomLeft>
+            <Title>1. 편지</Title>
+          </CustomLeft>
+          <StyledImg src={'icon_letter_close.png'} width='80%' height='40vh' />
+          {isNext ? (
+            <Next2 onClick={() => handleClick()}>스티커 뜯기</Next2>
+          ) : (
+            <Next onClick={() => setShowLockModal(true)}>스티커 뜯기</Next>
+          )}
 
-        {showModal && (
-          <Modal>
-            <ModalContent>
-              <StyledImg src={'icon_letter_open.png'} width='70%' height='40vh' />
-            </ModalContent>
-          </Modal>
-        )}
-        {showLockModal && (
-          <LockModalContainer>
-            <LockModal>
-              <Input name="date" placeholder="처음 만난 날짜는 언제인가요?" value={answers.date} onChange={handleChange} />
-              <Input name="nickname" placeholder="여자친구의 별명은 무엇인가요?" value={answers.nickname} onChange={handleChange} />
-              <Input name="favoriteFood" placeholder="여자친구가 가장 좋아하는 음식은 무엇인가요?" value={answers.favoriteFood} onChange={handleChange} />
-              <Submit onClick={handleSubmit}>정답 제출</Submit>
-              {message && <AnswerMessage>{message}</AnswerMessage>}
-            </LockModal>
-          </LockModalContainer>
-        )}
-        {isHappy && (
-          <Modal>
-            <ModalContent>
-              <StyledImg src={'icon_happy.png'} width='70%' height='40vh' />
-            </ModalContent>
-          </Modal>
-        )}
-      </PageContainer>
-      <PageContainer>
-        <CustomLeft>
-          <Title>2. 초콜렛</Title>
-        </CustomLeft>
-        <ChocoBoxContainer>
-          <ChocoBox />
-        </ChocoBoxContainer>
-      </PageContainer>
-      <PageContainer>
-        <CustomLeft>
-          <Title>3. 꽃다발</Title>
-        </CustomLeft>
-        <Flower />
-      </PageContainer>
-    </ContainerCenter>
+          {showModal && (
+            <Modal>
+              <ModalContent>
+                <StyledImg src={'icon_letter_open.png'} width='70%' height='40vh' />
+              </ModalContent>
+            </Modal>
+          )}
+          {showLockModal && (
+            <LockModalContainer>
+              <LockModal>
+                <Input name="date" placeholder="처음 만난 날짜는 언제인가요?" value={answers.date} onChange={handleChange} />
+                <Input name="nickname" placeholder="여자친구의 별명은 무엇인가요?" value={answers.nickname} onChange={handleChange} />
+                <Input name="favoriteFood" placeholder="여자친구가 가장 좋아하는 음식은 무엇인가요?" value={answers.favoriteFood} onChange={handleChange} />
+                <Submit onClick={handleSubmit}>정답 제출</Submit>
+                {message && <AnswerMessage>{message}</AnswerMessage>}
+              </LockModal>
+            </LockModalContainer>
+          )}
+          {isHappy && (
+            <Modal>
+              <ModalContent>
+                <StyledImg src={'icon_happy.png'} width='70%' height='40vh' />
+              </ModalContent>
+            </Modal>
+          )}
+        </PageContainer>
+        <PageContainer>
+          <CustomLeft>
+            <Title>2. 초콜렛</Title>
+          </CustomLeft>
+          <ChocoBoxContainer>
+            <ChocoBox />
+          </ChocoBoxContainer>
+        </PageContainer>
+        <PageContainer>
+          <CustomLeft>
+            <Title>3. 꽃다발</Title>
+          </CustomLeft>
+          <Flower />
+        </PageContainer>
+      </ContainerCenter>
+      <Footer />
+    </>
   );
 };

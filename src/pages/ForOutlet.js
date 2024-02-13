@@ -5,6 +5,7 @@ import Footer from "../Components/Footer/Footer";
 export default function Component() {
     return (
         <>
+            <Header />
             <Outlet />
         </>
     )
