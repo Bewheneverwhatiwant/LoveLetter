@@ -8,6 +8,7 @@ import CustomRow from '../../Components/Container/CustomRow';
 import CustomCenter from '../../Components/Container/CustomCenter';
 import StyledImg from '../../Components/Container/StyledImg';
 import Footer from '../../Components/Footer/Footer';
+import Treasure from './Treasure';
 
 const ContainerCenter = styled.div`
   display: flex;
@@ -283,8 +284,20 @@ export default function Component() {
           </Title>
         </PageContainer>
         <PageContainer>
+          <Title>
+            <CustomRow>
+              <CustomCenter>
+                <Title>
+                  천천히 스크롤을 내리며<br />세가지 선물을 확인해볼까요?
+                </Title>
+              </CustomCenter>
+              <StyledImg src={'header_heart.png'} width='100px' height='100px' />
+            </CustomRow>
+          </Title>
+        </PageContainer>
+        <PageContainer>
           <CustomLeft>
-            <Title>1. 편지</Title>
+            <Title>💗첫번째 선물: 편지</Title>
           </CustomLeft>
           <StyledImg src={'icon_letter_close.png'} width='80%' height='40vh' />
           {isNext ? (
@@ -321,7 +334,7 @@ export default function Component() {
         </PageContainer>
         <PageContainer>
           <CustomLeft>
-            <Title>2. 초콜렛</Title>
+            <Title>💗두번째 선물: 초콜렛</Title>
           </CustomLeft>
           <ChocoBoxContainer>
             <ChocoBox />
@@ -329,9 +342,15 @@ export default function Component() {
         </PageContainer>
         <PageContainer>
           <CustomLeft>
-            <Title>3. 꽃다발</Title>
+            <Title>💗세번째 선물: 꽃다발</Title>
           </CustomLeft>
           <Flower />
+        </PageContainer>
+        <PageContainer>
+          <CustomLeft>
+            <Title>💗마지막 선물: ??</Title>
+          </CustomLeft>
+          <Treasure />
         </PageContainer>
       </ContainerCenter>
       <Footer />
