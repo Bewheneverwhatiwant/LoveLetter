@@ -126,7 +126,7 @@ const Modal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 10;
 
   & > div {
     animation: ${growAnimation} 0.5s ease-out forwards;
@@ -167,7 +167,7 @@ position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 10;
 
   & > div {
     animation: ${growAnimation} 0.5s ease-out forwards;
@@ -266,10 +266,6 @@ export default function Component() {
       navigate('/letterpage'); //3초 후 페이지 이동
     }, 3000);
   };
-
-  const Choco = () => {
-    navigate('/chocopage');
-  }
 
   return (
     <>
