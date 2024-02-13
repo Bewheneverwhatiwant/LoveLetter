@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import StyledImg from '../../Components/Container/StyledImg';
 import { keyframes } from 'styled-components';
 import ChocoBox from './ChocoBox';
+import Flower from './Flower';
+import CustomRow from '../../Components/Container/CustomRow';
+import CustomCenter from '../../Components/Container/CustomCenter';
+import StyledImg from '../../Components/Container/StyledImg';
 
 const ContainerCenter = styled.div`
   display: flex;
@@ -15,12 +18,12 @@ const ContainerCenter = styled.div`
 `
 
 const PageContainer = styled(ContainerCenter)`
+width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 30px;
-    gap: 30px;
-
+    gap: 10px;
     position: relative;
 `
 
@@ -50,7 +53,7 @@ justify-content: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 3;
 `;
 
 const Next2 = styled.button`
@@ -72,23 +75,7 @@ justify-content: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
-`;
-
-const ChocoButton = styled.button`
-width: 20%;
-height: 5vh;
-border: none;
-background-color: brown;
-border-radius: 10px;
-color: white;
-font-family: 'RIDIBatang';
-font-size: 10px;
-
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
+  z-index: 3;
 `;
 
 const Submit = styled.button`
@@ -198,6 +185,21 @@ const AnswerMessage = styled.p`
   color: red;
 `;
 
+const Title = styled.h1`
+color: brown;
+font-size: 16px;
+font-family: 'RIDIBatang';
+line-height: 20px; 
+`;
+
+const CustomLeft = styled.div`
+width: 80%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+`;
+
+
 export default function Component() {
 
   const navigate = useNavigate();
@@ -271,6 +273,21 @@ export default function Component() {
   return (
     <ContainerCenter>
       <PageContainer>
+        <Title>
+          <CustomRow>
+            <StyledImg src={'present.png'} width='100px' height='100px' />
+            <CustomCenter>
+              <Title>
+                300일과 발렌타인데이를 맞아,<br />나영이가 수혁이에게<br />특별한 선물을 준비했어요 !
+              </Title>
+            </CustomCenter>
+          </CustomRow>
+        </Title>
+      </PageContainer>
+      <PageContainer>
+        <CustomLeft>
+          <Title>1. 편지</Title>
+        </CustomLeft>
         <StyledImg src={'icon_letter_close.png'} width='80%' height='40vh' />
         {isNext ? (
           <Next2 onClick={() => handleClick()}>스티커 뜯기</Next2>
@@ -304,9 +321,20 @@ export default function Component() {
           </Modal>
         )}
       </PageContainer>
-      <ChocoBoxContainer>
-        <ChocoBox />
-      </ChocoBoxContainer>
+      <PageContainer>
+        <CustomLeft>
+          <Title>2. 초콜렛</Title>
+        </CustomLeft>
+        <ChocoBoxContainer>
+          <ChocoBox />
+        </ChocoBoxContainer>
+      </PageContainer>
+      <PageContainer>
+        <CustomLeft>
+          <Title>3. 꽃다발</Title>
+        </CustomLeft>
+        <Flower />
+      </PageContainer>
     </ContainerCenter>
   );
 };
