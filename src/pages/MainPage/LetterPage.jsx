@@ -3,6 +3,16 @@ import styled from 'styled-components';
 import Letter1 from './Letter1';
 import Letter2 from './Letter2';
 import Letter3 from './Letter3';
+import Letter4 from './Letter4';
+import Letter5 from './Letter5';
+import Letter6 from './Letter6';
+import Letter7 from './Letter7';
+import Letter8 from './Letter8';
+import Letter9 from './Letter9';
+import Letter10 from './Letter10';
+import Letter11 from './Letter11';
+import Letter12 from './Letter12';
+import Letter13 from './Letter13';
 import CustomRow from '../../Components/Container/CustomRow';
 import CustomCenter from '../../Components/Container/CustomCenter';
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io';
@@ -50,6 +60,26 @@ export default function Component() {
                 return <Letter2 />;
             case 3:
                 return <Letter3 />;
+            case 4:
+                return <Letter4 />;
+            case 5:
+                return <Letter5 />;
+            case 6:
+                return <Letter6 />;
+            case 7:
+                return <Letter7 />;
+            case 8:
+                return <Letter8 />;
+            case 9:
+                return <Letter9 />;
+            case 10:
+                return <Letter10 />;
+            case 11:
+                return <Letter11 />;
+            case 12:
+                return <Letter12 />;
+            case 13:
+                return <Letter13 />;
             default:
                 return <Letter1 />;
         }
@@ -70,7 +100,7 @@ export default function Component() {
                             </CustomRow>
                         </Next>
                     )}
-                    {currentPage < 3 && ( //다음 페이지가 있을 때만 '다음 장으로' 버튼을 보여줌
+                    {currentPage < 13 && ( //다음 페이지가 있을 때만 '다음 장으로' 버튼을 보여줌
                         <Next onClick={() => setCurrentPage(currentPage + 1)}>
                             <CustomRow gap="5px">
                                 <CustomCenter>다음 장으로</CustomCenter>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import StyledImg from '../../Components/Container/StyledImg';
 
 const CustomColumn = styled.div`
   display: flex;
@@ -53,6 +54,12 @@ export default function Component() {
         <Letter>
             <CustomColumn>
                 <To>우리가 처음 만난 날</To>
+                <StyledImg src={'sh1.jpg'} width='100%' height='40vh' />
+                <Text>내가 수혁이한테 깜짝 서프라이즈해주자고 했던거 기억난다ㅋㅋㅋㅋ</Text>
+                <StyledImg src={'sh2.jpg'} width='100%' height='40vh' />
+                <Text>너무 아가 수혁이!</Text>
+                <StyledImg src={'sh3.jpg'} width='100%' height='40vh' />
+                <Text>우리의 첫데이트. 홍대개미!</Text>
             </CustomColumn>
         </Letter>
     )
