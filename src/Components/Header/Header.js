@@ -52,7 +52,7 @@ export default function Header() {
         <HeaderContainer onClick={Back}>
             <StyledImg src={'header_choco.png'} width='40px' height='30px' />
             <CustomColumn2 gap='5px'>
-                <Title>2023년 2월 15일 목요일</Title>
+                <Title>2024년 2월 15일 목요일</Title>
                 <Detail>valentine day & our 300 anniversary</Detail>
             </CustomColumn2>
             <StyledImg src={'ourday.png'} width='30px' height='30px' />
